@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Lisandro
+apellido: Escalada
 ---
 TP: ES_Facturaciones
 ---
@@ -14,7 +14,7 @@ Enunciado:
 Para el departamento de facturación:
     A.	Ingresar tres precios de productos y mostrar la suma de los mismos.
     B.	Ingresar tres precios de productos y mostrar el promedio de los mismos.
-	C.	ingresar tres precios de productos sumarlos y mostrar el precio final (más IVA 21%).
+	C.	ingresar tres precios de productos, sumarlos y mostrar el precio final (más IVA 21%).
 '''
 
 class App(customtkinter.CTk):
@@ -52,13 +52,45 @@ class App(customtkinter.CTk):
         self.btn_total_iva.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
     def btn_total_on_click(self):
-        pass
+        producto1 = self.txt_importe_1.get()
+        producto2 = self.txt_importe_2.get()
+        producto3 = self.txt_importe_3.get()
+
+        producto1_int = int(producto1)
+        producto2_int = int(producto2)
+        producto3_int = int(producto3)
+
+        total = producto1_int + producto2_int + producto3_int
+
+        alert("Total", total)
 
     def btn_promedio_on_click(self):
-        pass
+        producto1 = self.txt_importe_1.get()
+        producto2 = self.txt_importe_2.get()
+        producto3 = self.txt_importe_3.get()
+
+        producto1_int = int(producto1)
+        producto2_int = int(producto2)
+        producto3_int = int(producto3)
+
+        total = producto1_int + producto2_int + producto3_int
+        promedio = total / 3
+
+        alert("Promedio", promedio)
 
     def btn_total_iva_on_click(self):
-        pass      
+        producto1 = self.txt_importe_1.get()
+        producto2 = self.txt_importe_2.get()
+        producto3 = self.txt_importe_3.get()
+
+        producto1_int = int(producto1)
+        producto2_int = int(producto2)
+        producto3_int = int(producto3)
+
+        total = producto1_int + producto2_int + producto3_int
+        iva = total * 1.21
+
+        alert("Total c/IVA", iva)
     
 if __name__ == "__main__":
     app = App()
