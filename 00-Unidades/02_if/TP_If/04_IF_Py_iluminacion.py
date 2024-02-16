@@ -16,7 +16,7 @@ Todas las lámparas están  al mismo precio de $800 pesos final.
 		B.	Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y si es de otra marca el descuento es del 30%.
 		C.	Si compra 4  lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25 % y si es de otra marca el descuento es del 20%.
 		D.	Si compra 3  lamparitas bajo consumo marca "ArgentinaLuz"  el descuento es del 15%, si es  “FelipeLamparas” se hace un descuento del 10 % y si es de otra marca un 5%.
-		E.	Si el importe final con descuento suma más de $4000  se obtien un descuento adicional de 5%.
+		E.	Si el importe final con descuento suma más de $4000  se obtiene un descuento adicional de 5%.
 
         Entrada:
             Cantidad
@@ -55,24 +55,10 @@ class App(customtkinter.CTk):
 
     def btn_calcular_on_click(self):
         marca = self.combobox_marca.get()
-        cantidad = self.combobox_cantidad.get()
-        cantidad = int(cantidad) #Parseo
+        cantidad = int(self.combobox_cantidad.get())
 
         total_precio = cantidad * 800
         descuento = 0
-
-        # if marca
-        # match cantidad
-
-        # if cantidad
-        # match marca
-        # match marca
-        # match cantidad
-        
-        descuento_aplicar = (total_precio * descuento) / 100
-        total = total_precio - descuento
-        print(total)
-
 
         # if cantidad >= 6:
         #     descuento = (total_precio * 50) / 100

@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre: Lisandro
+apellido: Escalada
 ---
 Ejercicio: Match_10
 ---
@@ -57,6 +57,22 @@ class App(customtkinter.CTk):
                         print("se viaja")
                     case _:
                         print("no se viaja")
+            case "Verano":
+                match destinos:
+                    case "Mar del plata" | "Cataratas":
+                        print("se viaja")
+                    case _:
+                        print("no se viaja")
+            case "Otoño":
+                match destinos:
+                    case _:
+                        print("se viaja")
+            case "Primavera":
+                match destinos:
+                    case "Bariloche": 
+                        print("no se viaja")
+                    case _:
+                        print("se viaja")
             
     
 if __name__ == "__main__":

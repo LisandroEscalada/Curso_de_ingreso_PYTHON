@@ -43,9 +43,63 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        marca = self.combobox_marca.get()
+        cantidad = int(self.combobox_cantidad.get())
+
+        precio_base = cantidad * 800
+        descuento = 0
+
+        #A.	Si compra 6 o más lamparitas bajo consumo tiene un descuento del 50%. 
+        if cantidad >= 6:
+            descuento = 50
+        if cantidad >10:
+            descuento = descuento + 5
+
+        #B.	Si compra 5 lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y si es de otra marca el descuento es del 30%.    
+        match marca:
+            case "ArgentinaLuz":
+                match cantidad:
+                    case 5:
+                        descuento = 40
+            case _:
+                descuento = 30
+        #C.	Si compra 4 lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25 % y si es de otra marca el descuento es del 20%.
+        match marca:
+            case "ArgentinaLuz" | "FelipeLamparas":
+                match cantidad:
+                    case 4:
+                        descuento = 25
+            case _:
+                descuento = 20
+        #D.	Si compra 3 lamparitas bajo consumo marca "ArgentinaLuz" el descuento es del 15%, si es “FelipeLamparas” se hace un descuento del 10 % y si es de otra marca un 5%.
+        match cantidad:
+            case 3:
+                match marca: 
+                    case "ArgentinaLuz":
+                        descuento = 15
+                    case "FelipeLamparas":
+                        descuento = 10
+                    case _:
+                        descuento = 5
+        #E.	Si el importe final con descuento suma más de $4000 se obtiene un descuento adicional de 5%.
+
+        descuento_aplicado = (precio_base * descuento) / 100
+        total = precio_base - descuento_aplicado
         
-    
+        print("Precio base: ", precio_base)
+        print("Descuento:" , descuento)
+        print("Descuento aplicado: ", descuento_aplicado)
+        print("Total:",total)
+
+        # if marca
+        # match cantidad
+
+        # if cantidad
+        # match marca
+        # match marca
+        # match cantidad 
+
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
