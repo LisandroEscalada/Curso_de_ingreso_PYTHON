@@ -60,16 +60,16 @@ class App(customtkinter.CTk):
             if numero == 0:
                 cero_cantidad += 1
 
-            diferencia = diferencia = positivo_cantidad - negativo_cantidad
+        diferencia = positivo_cantidad - negativo_cantidad
                 
-        alert("Resultados", f"La suma acumulada de los negativos: {suma_negativo}, La suma acumulada de los positivos: {suma_positivo}, Cantidad de números positivos ingresados: {positivo_cantidad}, Cantidad de números negativos ingresados: {negativo_cantidad}, Cantidad de ceros: {cero_cantidad}, Diferencia entre la cantidad de los números positivos ingresados y los negativos: {diferencia}")
+        # alert("Resultados", f"La suma acumulada de los negativos: {suma_negativo}, La suma acumulada de los positivos: {suma_positivo}, Cantidad de números positivos ingresados: {positivo_cantidad}, Cantidad de números negativos ingresados: {negativo_cantidad}, Cantidad de ceros: {cero_cantidad}, Diferencia entre la cantidad de los números positivos ingresados y los negativos: {diferencia}")
     
-        # print(f"La suma acumulada de los negativos: {suma_negativo}")
-        # print(f"La suma acumulada de los positivos: {suma_positivo}")
-        # print(f"Cantidad de números positivos ingresados: {positivo_cantidad}")
-        # print(f"Cantidad de números negativos ingresados: {negativo_cantidad}")
-        # print(f"Cantidad de ceros: {cero_cantidad}")
-        # print(f"Diferencia entre la cantidad de los números positivos ingresados y los negativos: {diferencia}")
+        print(f"La suma acumulada de los negativos: {suma_negativo}")
+        print(f"La suma acumulada de los positivos: {suma_positivo}")
+        print(f"Cantidad de números positivos ingresados: {positivo_cantidad}")
+        print(f"Cantidad de números negativos ingresados: {negativo_cantidad}")
+        print(f"Cantidad de ceros: {cero_cantidad}")
+        print(f"Diferencia entre la cantidad de los números positivos ingresados y los negativos: {diferencia}")
 
     
 if __name__ == "__main__":

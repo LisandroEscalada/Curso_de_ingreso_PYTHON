@@ -30,12 +30,12 @@ class App(customtkinter.CTk):
     
     def btn_mostrar_iteracion_on_click(self):
         suma = 0
-        numero = 1
+        contador = 0
 
-        while numero <= 10:
-            if numero % 2 == 0:
-                suma = suma + numero
-            numero = numero + 1
+        while contador <= 10:
+            if contador % 2 == 0:
+                suma += contador
+            contador += 1
 
         alert("","La suma de los numeros pares es: {}". format (suma))
     

@@ -45,15 +45,19 @@ class App(customtkinter.CTk):
             if numero == None or numero == "0":
                 break
 
-            numero = float(numero)
+            numero = int(numero)
          
             if numero > 0:
-                suma_acumulada = suma_acumulada + numero
-            if numero < 0:
-                multi_acumulada = multi_acumulada * numero
+                suma_acumulada += numero
+            elif numero < 0:
+                multi_acumulada *= numero
 
+        self.txt_suma_acumulada.delete(0, "end")
         self.txt_suma_acumulada.insert(0, suma_acumulada)
+
+        self.txt_producto.delete(0, "end")
         self.txt_producto.insert(0, multi_acumulada)
+    
 
     
 if __name__ == "__main__":
