@@ -5,14 +5,14 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Lisandro
+apellido: Escalada
 ---
 TP: While_validaciones_rising_btl
 ---
 Enunciado:
 Rising BTL. Empresa dedicada a la toma de datos para realizar estadísticas y censos nos pide realizar una carga de datos validada e ingresada 
-por ventanas emergentes solamente (para evitar hacking y cargas maliciosas) y luego asignarla a cuadros de textos. 
+por ventanas emergentes solamente (para evitar hacking y cargas maliciosas) y luego asignarla a cuadros de textos.
 
 Los datos requeridos son los siguientes:
     Apellido
@@ -55,32 +55,24 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        apellido = self.txt_apellido.get()
+        apellido = self.txt_apellido.get() 
         edad = self.txt_edad.get()
         estado_civil = self.combobox_tipo.get()
         legajo = self.txt_legajo.get()
+        edad = int(edad)
+        legajo_int = int(legajo)
 
         while True:
-            apellido = prompt("Apellido", "Ingrese su apellido")
-
-            edad = int(prompt("Edad", "Ingrese su edad"))
             if edad < 18 or edad > 90:
-                prompt("Error", "Reingrese su edad")
-
-            # estado_civil = prompt("Estado Civil", f"Solter/a: {1}, Casado/a: 2, Divorciado/a: 3, Viudo/a: 4")
-            # match estado_civil:
-            #     case 1:
-            #         "Solter/a"
-            legajo = int(prompt("Legajo", "Ingrese su legajo"))
-            if legajo != 4:
-                int(prompt("Legajo", "Reingrese su legajo"))
-            break
-
-        self.txt_apellido.insert(0, apellido)
-        self.txt_edad.insert(0, edad)
-        self.txt_legajo.insert(0, legajo)
-
-
+                alert("Error", "La edad debe estar entre 18 y 90 años.")
+                break
+            elif legajo_int < 1000 or legajo_int > 10000:
+                alert("Error", "El legajo debe ser numérico de 4 cifras, sin ceros a la izquierda.")
+                break
+            else:
+                alert("Datos Ingresados", f"Apellido: {apellido}\n Edad: {edad}\n Estado civil: {estado_civil}\n Legajo: {legajo}")
+                break
+    
 
 if __name__ == "__main__":
     app = App()

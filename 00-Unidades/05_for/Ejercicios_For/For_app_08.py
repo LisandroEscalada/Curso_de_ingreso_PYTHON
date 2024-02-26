@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Lisandro
+apellido: Escalada
 ---
 Ejercicio: for_08
 ---
@@ -26,7 +26,27 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        numero = int(input("Ingrese un numero: "))
+        primo = True
+        cantidad_num_primo = 0
+
+        for i in range(2, numero):
+            if numero % i == 0:
+                primo = False
+                break
+
+        print(f"Números primos entre 1 y {numero}:")
+        for num in range(2, numero + 1):
+            primo = True
+            for i in range(2, num):
+                if num % i == 0:
+                    primo = False
+                    break
+            if primo:
+                cantidad_num_primo += 1
+                print(num)
+        print(f"Cantidad de numeros primos: {cantidad_num_primo}")
+
     
 if __name__ == "__main__":
     app = App()

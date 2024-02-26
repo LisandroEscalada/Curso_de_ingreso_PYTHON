@@ -54,10 +54,10 @@ class App(customtkinter.CTk):
             if numero > 0:
                 suma_positivo += numero
                 positivo_cantidad += 1
-            if numero < 0:
+            elif numero < 0:
                 suma_negativo += numero
                 negativo_cantidad += 1
-            if numero == 0:
+            else:
                 cero_cantidad += 1
 
         diferencia = positivo_cantidad - negativo_cantidad

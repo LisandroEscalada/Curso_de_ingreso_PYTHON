@@ -49,7 +49,7 @@ class App(customtkinter.CTk):
             
             numero = int(numero)
 
-            if bandera == True:
+            if bandera:
                 maximo = numero
                 minimo = numero
                 bandera = False
