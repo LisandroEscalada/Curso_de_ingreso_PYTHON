@@ -52,8 +52,8 @@ class App(customtkinter.CTk):
         #A.	Si compra 6 o más lamparitas bajo consumo tiene un descuento del 50%. 
         if cantidad >= 6:
             descuento = 50
-        if cantidad >10:
-            descuento = descuento + 5
+        if cantidad > 10:
+            descuento += 5
 
         #B.	Si compra 5 lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y si es de otra marca el descuento es del 30%.    
         match marca:

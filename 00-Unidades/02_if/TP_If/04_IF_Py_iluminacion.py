@@ -17,17 +17,6 @@ Todas las lámparas están  al mismo precio de $800 pesos final.
 		C.	Si compra 4  lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25 % y si es de otra marca el descuento es del 20%.
 		D.	Si compra 3  lamparitas bajo consumo marca "ArgentinaLuz"  el descuento es del 15%, si es  “FelipeLamparas” se hace un descuento del 10 % y si es de otra marca un 5%.
 		E.	Si el importe final con descuento suma más de $4000  se obtiene un descuento adicional de 5%.
-
-        Entrada:
-            Cantidad
-            Marca
-        Procesos:
-            1. Calculamos el precio sin descuento(cantidad * 800)
-            2. Averiguar cual ers descuento que tengo que aplicar(Segun cantidad y marca)
-            3. Aplicar el descuento
-            4. Verificar y aplicar descuento extra
-
-        Salidas:
 '''
 
 class App(customtkinter.CTk):
@@ -57,89 +46,46 @@ class App(customtkinter.CTk):
         marca = self.combobox_marca.get()
         cantidad = int(self.combobox_cantidad.get())
 
-        total_precio = cantidad * 800
+        precio_base = cantidad * 800
         descuento = 0
 
-        # if cantidad >= 6:
-        #     descuento = (total_precio * 50) / 100
-        #     total = total_precio - descuento
-        # else:
-        #     if cantidad == 5 and marca == "ArgentinaLuz":
-        #         descuento = (total_precio * 40) / 100
-        #         total = total_precio - descuento
-        #     else:
-        #         if cantidad == 5 and not(marca == "ArgentinaLuz"):
-        #             descuento = (total_precio * 30) / 100
-        #             total = total_precio - descuento
-        #         else:
-        #             if cantidad == 4 and (marca == "ArgentinaLuz" or marca == "FelipeLamparas"):
-        #                 descuento = (total_precio * 25) / 100
-        #                 total = total_precio - descuento
-        #             else:
-        #                 if cantidad == 4 and(marca != "ArgentinaLuz" or marca != "FelipeLamparas"):
-        #                     descuento = (total_precio * 20) / 100
-        #                     total = total_precio - descuento
-        #                 else:
-        #                     if cantidad == 3 and marca == "ArgentinaLuz":
-        #                         descuento = (total_precio * 15) / 100
-        #                         total = total_precio - descuento
-        #                     else:
-        #                         if cantidad == 3 and marca == "FelipeLamparas":
-        #                             descuento = (total_precio * 10) / 100
-        #                             total = total_precio - descuento
-        #                         else:
-        #                             if cantidad == 3 and (marca != "ArgentinaLuz" or marca != "FelipeLamparas"):
-        #                                 descuento = (total_precio * 5) / 100
-        #                                 total = total_precio - descuento
-                     
-        # print(total)
+        #A.	Si compra 6 o más lamparitas bajo consumo tiene un descuento del 50%. 
+        if cantidad >= 6:
+            descuento = 50
+            if cantidad > 10:
+                descuento += 5
+        #B.	Si compra 5 lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y si es de otra marca el descuento es del 30%.  
+        elif cantidad == 5:
+            if marca == "ArgentinaLuz":
+                descuento = 40
+            else: 
+                descuento = 30
 
-
-        # if cantidad >= 6:
-        #     descuento = 50
-        # elif cantidad == 5 and marca == "ArgentinaLuz":
-        #     descuento = 40
-        # elif cantidad == 5 and not(marca == "ArgentinaLuz"):
-        #     descuento = 30
-        # elif cantidad == 4 and(marca == "ArgentinaLuz" or marca == "FelipeLamparas"):
-        #     descuento = 25
-        # elif cantidad == 4 and(marca != "ArgentinaLuz" or marca != "FelipeLamparas"):
-        #     descuento = 20
-        # elif cantidad == 3 and marca == "ArgentinaLuz":
-        #     descuento = 15
-        # elif cantidad == 3 and marca == "FelipeLamparas":
-        #     descuento = 10
-        # elif cantidad == 3 and(marca != "ArgentinaLuz" or marca != "FelipeLamparas"):
-        #     descuento = 5
-
-        # descuento_aplicar = (total_precio * descuento) / 100
-        # total = total_precio - descuento_aplicar                 
-        # print(total)
-
-
-        # if cantidad >= 6:
-        #     descuento = 50
-        # elif cantidad == 5:
-        #     if marca == "ArgentinaLuz":
-        #         descuento = 40
-        #     else: 
-        #         descuento = 30
-        # elif cantidad == 4:
-        #     if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
-        #         descuento = 25
-        #     else:
-        #         descuento = 20
-        # elif cantidad == 3:
-        #     if marca == "ArgentinaLuz":
-        #         descuento = 15
-        #     elif marca == "FelipeLamparas":
-        #         descuento = 10
-        #     else:
-        #         descuento = 5
+        #C.	Si compra 4 lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25 % y si es de otra marca el descuento es del 20%.
+        elif cantidad == 4:
+            if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
+                descuento = 25
+            else:
+                descuento = 20
         
-        # descuento_aplicar = (total_precio * descuento) / 100
-        # total = total_precio - descuento
-        # print(total)
+        #D.	Si compra 3 lamparitas bajo consumo marca "ArgentinaLuz" el descuento es del 15%, si es “FelipeLamparas” se hace un descuento del 10 % y si es de otra marca un 5%.
+        elif cantidad == 3:
+            if marca == "ArgentinaLuz":
+                descuento = 15
+            elif marca == "FelipeLamparas":
+                descuento = 10
+            else:
+                descuento = 5
+
+        #E.	Si el importe final con descuento suma más de $4000 se obtiene un descuento adicional de 5%.
+        
+        descuento_aplicado = (precio_base * descuento) / 100
+        total = precio_base - descuento_aplicado
+        
+        print("Precio base: ", precio_base)
+        print("Descuento:" , descuento)
+        print("Descuento aplicado: ", descuento_aplicado)
+        print("Total:",total)
  
 
 if __name__ == "__main__":

@@ -38,7 +38,12 @@ class App(customtkinter.CTk):
     # Inicializacion:
         seguir = True
 
-        mayor_votos = 0
+        mayor_votos = float("-inf")
+        nombre_mas_votos = ""
+
+        menor_votos = float("inf")
+        nombre_menos_votos = ""
+        edad_menos_votos = 0
 
         suma_edades = 0
         cantidad_candidatos = 0
@@ -62,6 +67,14 @@ class App(customtkinter.CTk):
             cantidad_candidatos += 1
             total_votos += cantidad_votos
             suma_edades += edad
+
+            if cantidad_votos > mayor_votos:
+                mayor_votos = cantidad_votos
+                nombre_mas_votos = nombre
+            if cantidad_votos < menor_votos:
+                menor_votos = cantidad_votos
+                nombre_menos_votos = nombre
+                edad_menos_votos = edad
     
             seguir = question("Seguir", "Ingresa otro candidato")
 
@@ -70,8 +83,8 @@ class App(customtkinter.CTk):
         promedio_edad = suma_edades / cantidad_candidatos
 
         # Salidas: 
-        print(f"A. Nombre de candidato mas votado: ")
-        print(f"B. Nombre y edad de candidato menos votado: ")
+        print(f"A. Nombre de candidato mas votado: {nombre_mas_votos}")
+        print(f"B. Nombre y edad de candidato menos votado: {nombre_menos_votos}, {edad_menos_votos}")
         print(f"C. Promedio de edad: {promedio_edad}")
         print(f"D. Total de votos: {total_votos}")
 

@@ -27,20 +27,8 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        result_prompt = prompt(title="Ingresar",prompt="Ingrese un dato")
-        alert(title="Resultado",message=result_prompt)
-
-        #result1 = prompt("Ingresar","Ingrese un dato")
-        #alert(title="Valor Ingresado", message="Result")
-        #alert(result, result)
-
-        #Snake Case
-        mi_variable = "Hola DIV E"
-
-        #alert(title="Ventada",message=mi_variable)
-
-        #Texo literal "Hola"
-        #variable = "Hola"
+        dato = prompt("", "Ingrese un dato")
+        alert("Datos", dato)
         
     
 if __name__ == "__main__":

@@ -48,19 +48,19 @@ class App(customtkinter.CTk):
         self.btn_convertir_f_c.grid(row=4, pady=10, columnspan=2, sticky="nsew")
     
     def btn_convertir_c_f_on_click(self):
-        fahrenheit = self.txt_temperatura_c.get()
-        fahrenheit_int = int(fahrenheit)
-        cambioTemperatura = fahrenheit_int - 32 * 5/9
+        fahrenheit = int(self.txt_temperatura_c.get())
 
-        mensaje = f"{fahrenheit_int} °F son equivalentes a {cambioTemperatura} °C"
+        cambioTemperatura_fahrenheit = (fahrenheit - 32) * 5/9
+
+        mensaje = f"{fahrenheit} °F son equivalentes a {cambioTemperatura_fahrenheit} °C"
         alert("Ventana", mensaje)
 
     def btn_convertir_f_c_on_click(self):
-        centigrados = self.txt_temperatura_f.get()
-        centigrados_int = int(centigrados)
-        cambioTemperatura = centigrados_int * 9/5 + 32
+        centigrados = int(self.txt_temperatura_f.get())
 
-        mensaje = f"{centigrados_int} °C son equivalentes a {cambioTemperatura} °F"
+        cambioTemperatura_centigrados = (centigrados * 9/5) + 32
+
+        mensaje = f"{centigrados} °C son equivalentes a {cambioTemperatura_centigrados} °F"
         alert("Ventana", mensaje)
     
     
