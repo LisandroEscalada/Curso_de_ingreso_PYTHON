@@ -61,14 +61,20 @@ class App(customtkinter.CTk):
         legajo = int(self.txt_legajo.get())
 
         while True:
-            if 18 > edad > 90:
+            if not (18 <= edad <= 90):
+                self.txt_edad.delete(0, 'end')
                 alert("Error", "La edad debe estar entre 18 y 90 años inclusive")
                 break
-            if 1000 > legajo > 9999:
+            if not (1000 <= legajo <= 9999):
+                self.txt_legajo.delete(0, 'end')
                 alert("Error", "El número de legajo debe ser de 4 cifras sin ceros a la izquierda")
                 break
             else:
                 alert("Datos Validados", f"Apellido: {apellido}\nEdad: {edad}\nEstado civil: {estado}\nLegajo: {legajo}")
+                self.txt_apellido.delete(0, 'end')
+                self.txt_edad.delete(0, 'end')
+                self.txt_legajo.delete(0, 'end')
+                seguir = question("Seguir", "¿Desea ingresar otro candidato?")
                 break
 
 if __name__ == "__main__":
