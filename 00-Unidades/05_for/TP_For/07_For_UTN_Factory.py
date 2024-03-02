@@ -52,18 +52,23 @@ class App(customtkinter.CTk):
         tecnology_applicants = ""
 
         nb_asp_js_ssr = 0 
+
         nb_amount = 0 
         m_amount = 0 
         f_amount = 0 
+
         nb_age = 0 
         m_age = 0 
         f_age = 0 
+
         m_average_age = 0 
         f_average_age = 0 
         nb_average_age = 0 
+
         python_amount = 0 
         js_amount = 0 
         aspnet_amount = 0 
+        
         m_percentage_age = 0 
         f_percentage_age = 0 
         nb_percentage_age = 0
